@@ -70,7 +70,7 @@ const getNoteByIdHandler = (request, h) => {
   Jika ditemukan, catatan tersebut akan disimpan dalam variabel note.
   Jika tidak ditemukan, note akan menjadi undefined.
   */
-  const note = notes.filter((n) => n.id === id)[0];
+  const note = notes.filter((note) => note.id === id)[0];
 
   /*
   Menggunakan return lebih sesuai untuk mengembalikan respon sukses yang sederhana tanpa penyesuaian tambahan,
