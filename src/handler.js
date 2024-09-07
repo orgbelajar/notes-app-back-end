@@ -1,4 +1,4 @@
-const { nanoid } = require('nanoid');
+const { nanoid } = require('nanoid'); // import libary nanoid
 const notes = require('./notes');
 
 //* Menyimpan catatan yang ditambahkan dari aplikasi client
