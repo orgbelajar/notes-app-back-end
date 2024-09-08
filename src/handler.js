@@ -6,6 +6,16 @@ const addNoteHandler = (request, h) => {
   //* Gunakan properti request.payload untuk mendapatkan body request di Hapi
   const { title, tags, body } = request.payload;
 
+  // Validasi jika title, tags, atau body tidak ada
+  if (!title || !tags || !body) {
+    const response = h.response({
+      status: 'fail',
+      message: 'Data catatan tidak lengkap',
+    });
+    response.code(400); // Mengembalikan status kode 400
+    return response;
+  }
+
   const id = nanoid(16); //* Parameter number(16) adalah ukuran string-nya
   /*
   Properti createdAt dan updatedAt bernilai sama,
@@ -20,7 +30,6 @@ const addNoteHandler = (request, h) => {
 
   //* Masukan nilai-nilai dari var newNote ke dalam array notes menggunakan method push()
   notes.push(newNote);
-
 
   /*
   Untuk menentukan apakah newNote sudah masuk ke dalam array notes yaitu
